@@ -1,0 +1,27 @@
+shell:
+  build: .
+  dockerfile: dockerfiles/Dockerfile
+  volumes:
+    - .:/arrow-voting
+  command: bash
+
+lint:
+  build: .
+  dockerfile: dockerfiles/Dockerfile_tests
+  volumes:
+    - .:/arrow-voting
+  command: bash -c "black . --check && mypy --ignore-missing-imports . && pytype . && pycodestyle . --config=pycodestyle.cfg"
+
+lint-fix:
+  build: .
+  dockerfile: dockerfiles/Dockerfile_tests
+  volumes:
+    - .:/arrow-voting
+  command: bash -c "black ."
+
+tests:
+  build: .
+  dockerfile: dockerfiles/Dockerfile_tests
+  volumes:
+      - .:/arrow-voting
+  command: bash -c "nosetests ."
