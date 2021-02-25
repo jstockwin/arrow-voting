@@ -8,9 +8,9 @@ def schulze(votes: List[Dict[str, int]]) -> List[List[str]]:
     # TODO: Docstring
     validate_votes(votes)
 
-    preferences = get_preference_matrix(votes)
-    path_strengths = get_strongest_paths(preferences)
     candidates = list(votes[0].keys())
+    preferences = get_preference_matrix(votes)
+    path_strengths = get_strongest_paths(preferences, candidates)
     output = []
 
     while candidates:
