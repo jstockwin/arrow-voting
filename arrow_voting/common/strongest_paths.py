@@ -1,16 +1,14 @@
-from typing import Dict
+from typing import Dict, List
 
 from collections import defaultdict
 
 
 def get_strongest_paths(
-    preferences: Dict[str, Dict[str, int]]
+    preferences: Dict[str, Dict[str, int]], candidates: List[str]
 ) -> Dict[str, Dict[str, int]]:
     # TODO: Test
     # TODO: Docstring
     path_strengths: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
-
-    candidates = preferences.keys()
 
     for can_a in candidates:
         for can_b in candidates:
