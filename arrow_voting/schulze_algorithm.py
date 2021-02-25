@@ -10,7 +10,7 @@ def schulze(votes: List[Dict[str, int]]) -> List[List[str]]:
 
     preferences = get_preference_matrix(votes)
     path_strengths = get_strongest_paths(preferences)
-    candidates = list(path_strengths.keys())
+    candidates = list(votes[0].keys())
     output = []
 
     while candidates:
